@@ -57,9 +57,9 @@ This could be a trial account, a paid subscription, or Azure credit from an MSDN
 *   Open `.publishsettings` in Notepad and copy the name of the subscription to the Clipboard.
 *   Open the `.\Create.ps1` script in the ExampleConfigScripts folder and update the name of your subscription and the location of your .publishsettings file in the xAzureSubscription section.
 
-# Details
+## Resources
 
-**xAzureAffinityGroup** resource has following properties:
+###xAzureAffinityGroup
 
 *   **Name**: Specifies a name for the new affinity group that is unique to the subscription.
 *   **Ensure**: Specifies whether the Azure Affinity Group should be present or absent.
@@ -70,7 +70,7 @@ The description may be up to 1024 characters in length.
 *   **Label**: Specifies a label for the affinity group.
 The label may be up to 100 characters in length.
 
-**xAzureQuickVM** resource has following properties:
+###xAzureQuickVM
 
 *   **Name**: Specifies the name of the virtual machine.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -84,7 +84,7 @@ The label may be up to 100 characters in length.
 *   **InstanceSize**: Specifies the size of the instance.
 For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure/dn197896.aspx
 
-**xAzureService** resource has following properties:
+###xAzureService
 
 *   **ServiceName**: Specifies a name for the new cloud service that is unique to the subscription.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -92,7 +92,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AffinityGroup**: Specifies a description for the service.
 *   **Label**: Specifies a label for the service.
 
-**xAzureSqlDatabase** resource has following properties:
+###xAzureSqlDatabase
 
 *   **Name**: Name of the database
 *   **MaximumSizeInGB**: Maximum size of the database in GB
@@ -104,7 +104,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription
 *   **Ensure**: Ensure that database is present or absent
 
-**xAzureSqlDatabaseServerFirewallRule** resource has following properties:
+###xAzureSqlDatabaseServerFirewallRule
 
 *   **RuleName**: Name of the firewall rule
 *   **ServerName**: Name of the database server for which firewall rule should be created
@@ -114,7 +114,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription
 *   **Ensure**: Ensure that firewall rule is present or absent
 
-**xAzureStorageAccount** resource has following properties:
+###xAzureStorageAccount
 
 *   **StorageAccountName**: Specifies a name for the storage account.
 The storage account name must be unique to Windows Azure and must be between 3 and 24 characters in length and use lowercase letters and numbers only.
@@ -127,13 +127,13 @@ All files in the root of the folder will be uploaded to the new container.
 *   **Label**: Specifies a label for the storage account.
 The label may be up to 100 characters in length.
 
-**xAzureSubscription** resource has following properties:
+###xAzureSubscription
 
 *   **Ensure**: Specifies whether the subscription should be present or absent.
 *   **AzureSubscriptionName**: Specifies the name of the Azure subscription that should be set to Current.
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription.
 
-**xAzureVM** resource has following properties:
+###xAzureVM
 
 *   **Name**: Specifies the name of the virtual machine.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -152,61 +152,41 @@ Case sensitive.
 *   **ExtensionScriptName**: Name of one of the files in the container that will be exectued at startup.
 Case sensitive.
 
-**xAzureVMDscConfiguration** resource has following properties:
+###xAzureVMDscConfiguration
 
 *   **StorageAccountName**: Specifies the name of the storage account for the VM.
-
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
-
 *   **ContainerName**: Specifies the name of the Container in the Azure Storage Account.
-
 *   **ConfigurationPath**: Specifies location of the Dsc Configuration document.
-
 *   **AzureSubscriptionName**: Specifies the name of the Azure subscription that should be set to Current.
-
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription.
-
 *   **BlobURI**: Absolute Uri of the Blob.
 
-
-**xAzureVMDscExtension** resource has following properties:
+###xAzureVMDscExtension
 
 *   **VmName**: Specifies name of the VM.
 This is used together with ServiceName to construct a persistent vm object.
-
 *   **ServiceName**: Specifies name of the Service where the VM is deployed.
-
 *   **ConfigurationArchive**: The name of the configuration package .zip file that was previously uploaded by Publish-AzureVMDscConfiguration.
 This parameter must specify only the name of the file, without any path.
-
 *   **StorageAccountName**: Specifies the name of the Storage Account used to create the Storage Context.
 The Azure Storage Context provides the security settings used to access the configuration script.
 This context should provide read access to the container specified by ContainerName.
-
 *   **ConfigurationArgument**: A hashtable specifying the arguments to the configuration function.
 The keys correspond to the parameter names and the values to the parameter values.
-
 *   **ConfigurationDataPath**: The path to a .psd1 file that specifies the data for the configuration function.
-
 *   **Configuration**: SName of the configuration script or module that will be invoked by the DSC Extension.
-
 *   **ContainerName**: Name of the Azure Storage Container where the ConfigurationArchive is located.
-
 *   **Force**: By default xAzureVMDscExtension will not overwrite any existing blobs.
 Use -Force to overwrite them.
-
 *   **ReferenceName**: The Extension Reference Name 
 *   **StorageEndpointSuffix**: The DNS endpoint suffix for all storage services, e.g.
 core.windows.net.
-
 *   **Version**: The specific version of the DSC Extension to use.
 If not given, it will default to 1.* 
 *   **TimeStamp**: Returns the timestamp of the last DSC Extension execution.
-
 *   **Code**: Returns the message code for the latest oepration by the DSC Extension.
-
 *   **Message**: Returns the formatted message string for the latest operation by the DSC Extension.
-
 *   **Status**: Returns the state of the DSC Extension from Azure.
 
 ## Versions
@@ -252,11 +232,13 @@ The last step of the Create script is to return this number to the pipeline (alo
   
  You can capture the Instance ID by copying and pasting it from the PowerShell window, by copying and pasting it from the Azure website by opening the Cloud Service and selecting it from the title text, or you can automatically capture it from the pipeline using a variable.
  
- $test = .\Create.ps1 * In this example, the Instance ID would be returned as $test[1]  
- .\Status.ps1 $test[1] -ConnectionFiles * In this example, the status of the VM is checked using the pipeline value.
+```powershell
+$test = .\Create.ps1 # In this example, the Instance ID would be returned as $test[1]  
+.\Status.ps1 $test[1] -ConnectionFiles * In this example, the status of the VM is checked using the pipeline value.
+```
 
 **Note on credentials: **  
- When running the .\Create.ps1 script, there is an immediate prompt for credentials.
+ When running the `.\Create.ps1` script, there is an immediate prompt for credentials.
 The value collected here will be used to create the account inside the VM that is added to the local administrators group.
  
  **Note** - the password will be stored in clear text inside the MOF file in the example, however the resource has been designed to work with encrypted credentials.
