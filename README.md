@@ -28,9 +28,9 @@ If you would like to modify **xAzure** module, feel free.
 When modifying, please update the module name, resource friendly name, and MOF class name (instructions below).
 As specified in the license, you may copy or modify this resource as long as they are used on the Windows Platform.
 
-For more information about Windows PowerShell Desired State Configuration, check out the blog posts on the [<span style="color:#0000ff">PowerShell Blog</span>](http://blogs.msdn.com/b/powershell/) ([<span style="color:#0000ff">this</span>](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx) is a good starting point).
-There are also great community resources, such as [ <span style="color:#0000ff">PowerShell.org</span>](http://powershell.org/wp/tag/dsc/), or [ <span style="color:#0000ff">PowerShell Magazine</span>](http://www.powershellmagazine.com/tag/dsc/).
-For more information on the DSC Resource Kit, check out [<span style="color:#0000ff">this blog post</span>](http://go.microsoft.com/fwlink/?LinkID=389546).
+For more information about Windows PowerShell Desired State Configuration, check out the blog posts on the [PowerShell Blog](http://blogs.msdn.com/b/powershell/) ([this](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx) is a good starting point).
+There are also great community resources, such as [PowerShell.org](http://powershell.org/wp/tag/dsc/), or [PowerShell Magazine](http://www.powershellmagazine.com/tag/dsc/).
+For more information on the DSC Resource Kit, check out [this blog post](http://go.microsoft.com/fwlink/?LinkID=389546).
 
 ## Installation
 
