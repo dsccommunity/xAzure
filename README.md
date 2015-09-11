@@ -191,6 +191,10 @@ If not given, it will default to 1.*
 
 ## Versions
 
+### 0.2.0.0
+
+* Fixed file encodings
+
 ###0.1.3
 
 *   Introduce **xAzureDSCExtension**, **xAzureVMDscConfiguration**
