@@ -1,3 +1,8 @@
+# In production, you should get the password in a secure way, such as get-credential.
+# Instead of ConvertTo-SecureString -AllowPlainText
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '')]
+param()
+
 <#
     Configuration creates Azure SQL Database
 #>
@@ -20,12 +25,22 @@ configuration CreateSqlDatabase
     Import-DscResource -Name MSFT_xAzureSqlDatabase
     Import-DscResource -Name MSFT_xAzureSqlDatabaseServerFirewallRule
 
-    # Verify working directory    if ((test-path $workingDirectory) -eq $false)     {        Write-Warning 'The working directory does not exist.  Exiting script.'        Exit    }
+    # Verify working directory
+    if ((test-path $workingDirectory) -eq $false) 
+    {
+        Write-Warning 'The working directory does not exist.  Exiting script.'
+        Exit
+    }
 
     node localhost 
     {
 
-        xAzureSubscription MSDN        {            Ensure = 'Present'            AzureSubscriptionName = $azureSubscriptionName            AzurePublishSettingsFile = $azurePublishSettingsFile        }
+        xAzureSubscription MSDN
+        {
+            Ensure = 'Present'
+            AzureSubscriptionName = $azureSubscriptionName
+            AzurePublishSettingsFile = $azurePublishSettingsFile
+        }
         
         xAzureSqlDatabaseServerFirewallRule firewallRule 
         {
@@ -66,7 +81,9 @@ $script:configData =
                 );      
 }  
 
-#Sample use (please change values of parameters according to your scenario):$workingDirectory = 'C:\test'
+#Sample use (please change values of parameters according to your scenario):
+
+$workingDirectory = 'C:\test'
 $azureSubscriptionName = 'Visual Studio Ultimate with MSDN'
 $azurePublishSettingsFile = Join-Path $workingDirectory 'visual.publishsettings'
 $name = "databaseName"

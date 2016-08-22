@@ -43,7 +43,7 @@ param(
 [string]$LinuxUser,
 [bool]$Windows,
 [string]$AdminUserName,
-[string]$Password,
+[pscredential]$Password,
 [string]$InstanceSize
 )
     # Removing parameters from output
@@ -58,6 +58,7 @@ param(
             Write-Verbose 'Please be patient as the operation completes.'
             $CurrentSubscription = Get-AzureSubscription -Current
             Write-Verbose "The Azure subscription ID is $($CurrentSubscription.SubscriptionID)"
+            $PSBoundParameters['Password'] = $Password.GetNetworkCredential().Password
             New-AzureQuickVM @PSBoundParameters
             }
         'Absent' {
@@ -93,7 +94,7 @@ param(
 [string]$LinuxUser,
 [bool]$Windows,
 [string]$AdminUserName,
-[string]$Password,
+[pscredential]$Password,
 [string]$InstanceSize
 )
     # Output from Get-TargetResource
