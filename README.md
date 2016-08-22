@@ -194,6 +194,9 @@ If not given, it will default to 1.*
 
 ## Versions
 
+### Unreleased
+* Converted appveyor.yml to install Pester from PSGallery instead of from Chocolatey.
+
 ### 0.2.0.0
 
 * Fixed file encodings
