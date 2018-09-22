@@ -4,7 +4,7 @@
 
 The **xAzure** module is a set of DSC resources that provide a method of depoying virtual machines in Microsoft Azure by applying a configuration to your local machine.
 This is primarily intended to enable testing how a new virtual machine can be used to evaluate a scenario or application without consuming resources from the local machine.
-  
+
 
  This module includes 6 DSC resources that automate provisioning of resources in Microsoft Azure.
 
@@ -52,7 +52,7 @@ This module requires the latest version of PowerShell (v4.0, which ships in Wind
 To easily use PowerShell 4.0 on older operating systems, [install WMF](http://www.microsoft.com/en-us/download/details.aspx?id=40855).
 Please read the installation instructions that are present on both the download page and the release notes for WMF 4.0.
 
- In addition, this module works based on the following assumptions: 
+ In addition, this module works based on the following assumptions:
 *   You have access to an Azure account.
 This could be a trial account, a paid subscription, or Azure credit from an MSDN subscription.
 *   You have installed the Windows Azure PowerShell cmdlets package from [WebPI](http://www.microsoft.com/web/downloads/platform.aspx)
@@ -182,11 +182,11 @@ The keys correspond to the parameter names and the values to the parameter value
 *   **ContainerName**: Name of the Azure Storage Container where the ConfigurationArchive is located.
 *   **Force**: By default xAzureVMDscExtension will not overwrite any existing blobs.
 Use -Force to overwrite them.
-*   **ReferenceName**: The Extension Reference Name 
+*   **ReferenceName**: The Extension Reference Name
 *   **StorageEndpointSuffix**: The DNS endpoint suffix for all storage services, e.g.
 core.windows.net.
 *   **Version**: The specific version of the DSC Extension to use.
-If not given, it will default to 1.* 
+If not given, it will default to 1.*
 *   **TimeStamp**: Returns the timestamp of the last DSC Extension execution.
 *   **Code**: Returns the message code for the latest oepration by the DSC Extension.
 *   **Message**: Returns the formatted message string for the latest operation by the DSC Extension.
@@ -195,7 +195,10 @@ If not given, it will default to 1.*
 ## Versions
 
 ### Unreleased
-* Converted appveyor.yml to install Pester from PSGallery instead of from Chocolatey.
+
+* Update appveyor.yml to use the default template.
+* Added default template files .codecov.yml, .gitattributes, and .gitignore, and
+  .vscode folder.
 
 ### 0.2.0.0
 
@@ -208,13 +211,13 @@ If not given, it will default to 1.*
 
 ###0.1.2
 
- Release with the following resources 
+ Release with the following resources
 *   **xAzureSqlDatabase** creates Azure SQL Database
 *   **xAzureSqlDatabaseServerFirewallRule** creates Azure SQL Database Server Firewall Rule
 
 ###0.1.0
 
- Initial release with the following resources 
+ Initial release with the following resources
 *   **xAzureAffinityGroup** defines the relationship between compute and storage
 *   **xAzureQuickVM** simple resource for creating VMs with limited options
 *   **xAzureService** creates a cloud service for the VMs
@@ -235,26 +238,26 @@ The 'Examples' folder within the payload includes example configurations for com
 *   **SetupSubscription** - Setup the Azure subscription (remember that DSC is running as Local System)
 *   **Status** - Retrieve information about a VM and optionally download the .rdp file, install the certificate, and create a reference PS remote file
 
-**Understanding the INSTANCE ID: **  
+**Understanding the INSTANCE ID: **
  Instance ID - The Create script uses the last 10 places of the .NET time format named 'Ticks' to create a unique identifer for the accounts.
 This is required because storage and service names must be globally unique - not just for your account - across all Azure customers.
 The last step of the Create script is to return this number to the pipeline (along with the DSC output).
-  
+
  You can capture the Instance ID by copying and pasting it from the PowerShell window, by copying and pasting it from the Azure website by opening the Cloud Service and selecting it from the title text, or you can automatically capture it from the pipeline using a variable.
- 
+
 ```powershell
-$test = .\Create.ps1 # In this example, the Instance ID would be returned as $test[1]  
+$test = .\Create.ps1 # In this example, the Instance ID would be returned as $test[1]
 .\Status.ps1 $test[1] -ConnectionFiles * In this example, the status of the VM is checked using the pipeline value.
 ```
 
-**Note on credentials: **  
+**Note on credentials: **
  When running the `.\Create.ps1` script, there is an immediate prompt for credentials.
 The value collected here will be used to create the account inside the VM that is added to the local administrators group.
- 
+
  **Note** - the password will be stored in clear text inside the MOF file in the example, however the resource has been designed to work with encrypted credentials.
 For more information see: http://blogs.msdn.com/b/powershell/archive/2014/01/31/want-to-secure-credentials-in-windows-powershell-desired-state-configuration.aspx
 
-**Understanding HOW TO TEST JEA:**  
+**Understanding HOW TO TEST JEA:**
  As a side benefit of this solution it is possible to test PowerShell Just Enough Administration.
 Within the ScriptExtensionFiles folder you will find a script named InstallJEA.ps1\.
 This delivers prerequisites for testing including downloads of the xJEA resource and WMF5, installing them both, and enabling remote access.
