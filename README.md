@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/bx86bb6vuf6l3lwp/branch/master?svg=true)](https://ci.appveyor.com/project/PowerShell/xazure/branch/master)
 
-#xAzure
+# xAzure
 
 The **xAzure** module is a set of DSC resources that provide a method of depoying virtual machines in Microsoft Azure by applying a configuration to your local machine.
 This is primarily intended to enable testing how a new virtual machine can be used to evaluate a scenario or application without consuming resources from the local machine.
@@ -62,7 +62,7 @@ This could be a trial account, a paid subscription, or Azure credit from an MSDN
 
 ## Resources
 
-###xAzureAffinityGroup
+### xAzureAffinityGroup
 
 *   **Name**: Specifies a name for the new affinity group that is unique to the subscription.
 *   **Ensure**: Specifies whether the Azure Affinity Group should be present or absent.
@@ -73,7 +73,7 @@ The description may be up to 1024 characters in length.
 *   **Label**: Specifies a label for the affinity group.
 The label may be up to 100 characters in length.
 
-###xAzureQuickVM
+### xAzureQuickVM
 
 *   **Name**: Specifies the name of the virtual machine.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -87,7 +87,7 @@ The label may be up to 100 characters in length.
 *   **InstanceSize**: Specifies the size of the instance.
 For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure/dn197896.aspx
 
-###xAzureService
+### xAzureService
 
 *   **ServiceName**: Specifies a name for the new cloud service that is unique to the subscription.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -95,7 +95,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AffinityGroup**: Specifies a description for the service.
 *   **Label**: Specifies a label for the service.
 
-###xAzureSqlDatabase
+### xAzureSqlDatabase
 
 *   **Name**: Name of the database
 *   **MaximumSizeInGB**: Maximum size of the database in GB
@@ -107,7 +107,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription
 *   **Ensure**: Ensure that database is present or absent
 
-###xAzureSqlDatabaseServerFirewallRule
+### xAzureSqlDatabaseServerFirewallRule
 
 *   **RuleName**: Name of the firewall rule
 *   **ServerName**: Name of the database server for which firewall rule should be created
@@ -117,7 +117,7 @@ For a list of virtual machine sizes, see http://msdn.microsoft.com/library/azure
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription
 *   **Ensure**: Ensure that firewall rule is present or absent
 
-###xAzureStorageAccount
+### xAzureStorageAccount
 
 *   **StorageAccountName**: Specifies a name for the storage account.
 The storage account name must be unique to Windows Azure and must be between 3 and 24 characters in length and use lowercase letters and numbers only.
@@ -130,13 +130,13 @@ All files in the root of the folder will be uploaded to the new container.
 *   **Label**: Specifies a label for the storage account.
 The label may be up to 100 characters in length.
 
-###xAzureSubscription
+### xAzureSubscription
 
 *   **Ensure**: Specifies whether the subscription should be present or absent.
 *   **AzureSubscriptionName**: Specifies the name of the Azure subscription that should be set to Current.
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription.
 
-###xAzureVM
+### xAzureVM
 
 *   **Name**: Specifies the name of the virtual machine.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -155,7 +155,7 @@ Case sensitive.
 *   **ExtensionScriptName**: Name of one of the files in the container that will be exectued at startup.
 Case sensitive.
 
-###xAzureVMDscConfiguration
+### xAzureVMDscConfiguration
 
 *   **StorageAccountName**: Specifies the name of the storage account for the VM.
 *   **Ensure**: Specifies whether the Azure VM should be present or absent.
@@ -165,7 +165,7 @@ Case sensitive.
 *   **AzurePublishSettingsFile**: Specifies the location of the Publish Settings file for the Azure Subscription.
 *   **BlobURI**: Absolute Uri of the Blob.
 
-###xAzureVMDscExtension
+### xAzureVMDscExtension
 
 *   **VmName**: Specifies name of the VM.
 This is used together with ServiceName to construct a persistent vm object.
@@ -204,18 +204,18 @@ If not given, it will default to 1.*
 
 * Fixed file encodings
 
-###0.1.3
+### 0.1.3
 
 *   Introduce **xAzureDSCExtension**, **xAzureVMDscConfiguration**
 *   Minor bug fix in **xAzureStorageAccount** to make Folder no longer a mandatory propert
 
-###0.1.2
+### 0.1.2
 
  Release with the following resources
 *   **xAzureSqlDatabase** creates Azure SQL Database
 *   **xAzureSqlDatabaseServerFirewallRule** creates Azure SQL Database Server Firewall Rule
 
-###0.1.0
+### 0.1.0
 
  Initial release with the following resources
 *   **xAzureAffinityGroup** defines the relationship between compute and storage
